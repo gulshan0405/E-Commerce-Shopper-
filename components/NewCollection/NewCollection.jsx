@@ -3,13 +3,16 @@ import Item from "../Item/Item";
 
 const NewCollection = () => {
   return (
-    <div className="newcollection flex flex-col items-center gap-[10px] mb-[100px] ">
-      <h1 className="text-[#171717] text-[50px] font-semibold ">
+    <div className="newcollection flex flex-col items-center gap-4 mb-24 px-4 sm:px-6 lg:px-12">
+      {/* Title Section */}
+      <h1 className="text-[#171717] text-3xl sm:text-4xl lg:text-5xl font-semibold text-center">
         NEW COLLECTION
       </h1>
-      <hr className="w-[200px] h-1.5 rounded-[10px] bg-[#252525]" />
-      <div className="collections grid grid-cols-4 mt-[50px] gap-[30px] ">
-        {new_collection.map((item, i) => {
+      <hr className="w-24 sm:w-32 lg:w-48 h-1.5 rounded-lg bg-[#252525]" />
+
+      {/* Items Section */}
+      <div className="collections grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
+        {new_collection.map((item) => {
           return (
             <Item
               key={item.id}
