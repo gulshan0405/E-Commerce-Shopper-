@@ -10,12 +10,12 @@ const Popular = () => {
           POPULAR IN WOMEN
         </h1>
         <div className='h-5'></div>
-        <hr className="w-28 h-1 bg-gray-800 rounded-full" />
+        <hr style={{marginBottom:"10px"}} className="w-28 h-1 bg-gray-800 rounded-full" />
       </div>
   
       {/* Centered Grid Container */}
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl ">
+        <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl ">
           {data_product.map((item) => (
             <Item
               key={item.id}
