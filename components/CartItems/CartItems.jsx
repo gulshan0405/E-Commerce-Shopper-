@@ -10,7 +10,7 @@ const CartItems = () => {
   return (
     <div className="cartItems mx-auto p-4 md:p-8 lg:p-16">
       {/* Cart Table Header */}
-      <div className="grid grid-cols-6 gap-2 py-4 px-0 text-sm md:text-base text-gray-700 font-semibold hidden md:grid">
+      <div className=" grid-cols-6 gap-2 py-4 px-0 text-sm md:text-base text-gray-700 font-semibold hidden md:grid">
         <p>Products</p>
         <p>Title</p>
         <p>Price</p>
@@ -25,7 +25,7 @@ const CartItems = () => {
         if (cartItems[e.id] > 0) {
           return (
             <div key={e.id} className="cart-item grid grid-cols-6 gap-2 py-4 px-0 text-sm md:text-base text-gray-700 items-center">
-              <img className="col-span-6 md:col-span-1 w-full max-h-[150px]  mx-auto" src={e.image} alt={e.name} />
+              <img className="col-span-6 md:col-span-1 w-[150px] max-h-[250px] mx-auto" src={e.image} alt={e.name} />
               <p className="col-span-6 md:col-span-1 text-center">{e.name}</p>
               <p className="col-span-6 md:col-span-1 text-center">${e.new_price}</p>
               <div className="col-span-6 md:col-span-1 flex justify-center items-center gap-2">
