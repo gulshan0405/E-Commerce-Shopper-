@@ -2,100 +2,111 @@ import star_icon from "../assets/star_icon.png";
 import star_dull_icon from "../assets/star_dull_icon.png";
 import { useContext } from "react";
 import { ShopContext } from "../../context/ShopContext";
+
 const ProductDisplay = (props) => {
   const { product } = props;
-  const {addToCart} =useContext(ShopContext)
+  const { addToCart } = useContext(ShopContext);
+
   return (
-    <div style={{ margin: "2rem 11rem" }} className="flex ">
-      <div className="productdisplay-left flex gap-[17px]">
-        <div className="productdisplay-img-list flex flex-col gap-[16px]">
-          <img className="h-[144px]" src={product.image} alt="" />
-          <img className="h-[144px]" src={product.image} alt="" />
-          <img className="h-[144px]" src={product.image} alt="" />
-          <img className="h-[144px]" src={product.image} alt="" />
-        </div>
-        <div className="productdisplay-img w-[586px] ">
+    <div className="w-full flex flex-col lg:flex-row gap-8 px-4 md:px-8 lg:px-16 mt-8">
+      {/* Left Section */}
+      <div className="flex flex-col lg:flex-row gap-4 w-full lg:w-1/2">
+        {/* Main Image */}
+        <div className="w-full">
           <img
-            style={{ height: "625px" }}
-            className="productdisplay-main-img"
+            className="w-full h-auto max-h-[300px] md:max-h-[500px] lg:max-h-[625px]"
             src={product.image}
-            alt=""
+            alt="Product"
+          />
+        </div>
+
+        {/* Image List (Stacks below the main image on smaller screens) */}
+        <div className="flex flex-row md:flex-row lg:flex-col gap-4 overflow-x-auto md:justify-between lg:overflow-visible mt-4 md:mt-0">
+          <img
+            className="h-[80px] md:h-[120px] lg:h-[144px] w-[20%] md:w-[23%] lg:w-full object-cover"
+            src={product.image}
+            alt="Thumbnail"
+          />
+          <img
+            className="h-[80px] md:h-[120px] lg:h-[144px] w-[20%] md:w-[23%] lg:w-full object-cover"
+            src={product.image}
+            alt="Thumbnail"
+          />
+          <img
+            className="h-[80px] md:h-[120px] lg:h-[144px] w-[20%] md:w-[23%] lg:w-full object-cover"
+            src={product.image}
+            alt="Thumbnail"
+          />
+          <img
+            className="h-[80px] md:h-[120px] lg:h-[144px] w-[20%] md:w-[23%] lg:w-full object-cover"
+            src={product.image}
+            alt="Thumbnail"
           />
         </div>
       </div>
-      <div
-        style={{ margin: "0rem 2rem" }}
-        className="productdisplay-right flex flex-col  "
-      >
-        <h1 className="text-[#3d3d3d] text-[40px] text-bold ">
+
+      {/* Right Section (Stacks below on smaller screens) */}
+      <div className="flex flex-col gap-6 w-full lg:w-1/2 mt-8 lg:mt-0">
+        {/* Product Name */}
+        <h1 className="text-[#3d3d3d] text-[20px] md:text-[28px] lg:text-[40px] font-bold">
           {product.name}
         </h1>
-        <div className="productdisplay-right-star flex items-center mt-[13px] gap-[5px] text-[#1c1c1c] text-[16px]">
-          <img src={star_icon} alt="" />
-          <img src={star_icon} alt="" />
-          <img src={star_icon} alt="" />
-          <img src={star_icon} alt="" />
-          <img src={star_dull_icon} alt="" />
+
+        {/* Rating Section */}
+        <div className="flex items-center gap-2 text-[#1c1c1c] text-[14px] md:text-[16px]">
+          <img src={star_icon} alt="Star" />
+          <img src={star_icon} alt="Star" />
+          <img src={star_icon} alt="Star" />
+          <img src={star_icon} alt="Star" />
+          <img src={star_dull_icon} alt="Star" />
           <p>(122)</p>
         </div>
-        <div
-          style={{ margin: "2rem 0rem" }}
-          className="productdisplay-right-price flex gap-[30px] text-[24px] font-bold  "
-        >
-          <div className="productdisplay-right-price-old text-[#818181] line-through ">
-            ${product.old_price}
-          </div>
-          <div className="productdisplay-right-price-new text-[#ff4141]">
-            ${product.new_price}
-          </div>
+
+        {/* Price Section */}
+        <div className="flex gap-4 text-[18px] md:text-[22px] lg:text-[24px] font-bold mt-2">
+          <div className="text-[#818181] line-through">${product.old_price}</div>
+          <div className="text-[#ff4141]">${product.new_price}</div>
         </div>
-        <div className="productdisplay-right-description">
+
+        {/* Description */}
+        <p className="text-[#555] text-[14px] md:text-[16px]">
           A whisper of midnight blue silk, this dress drapes like liquid
           moonlight, catching the light with a subtle, ethereal sheen. Delicate,
           hand-stitched silver threads trace floral patterns along the neckline
           and hem, adding a touch of ancient elegance.
-        </div>
-        <div className="productdisplay-right-size">
-          <h1
-            style={{ marginTop: "55px" }}
-            className="text-[#656565] text-[20px] font-semibold "
-          >
+        </p>
+
+        {/* Size Selection */}
+        <div className="mt-6">
+          <h2 className="text-[#656565] text-[16px] md:text-[18px] font-semibold">
             Select Size
-          </h1>
-          <div
-            style={{ margin: "0.3rem 0rem" }}
-            className="productdisplay-right-size flex gap-[20px] "
-          >
-            <div className="py-[18px] px-[24px] bg-[#fbfbfb] border-[#ebebeb] rounded-[3px] cursor-pointer ">
-              S
-            </div>
-            <div className="py-[18px] px-[24px] bg-[#fbfbfb] border-[#ebebeb] rounded-[3px] cursor-pointer ">
-              M
-            </div>
-            <div className="py-[18px] px-[24px] bg-[#fbfbfb] border-[#ebebeb] rounded-[3px] cursor-pointer ">
-              L
-            </div>
-            <div className="py-[18px] px-[24px] bg-[#fbfbfb] border-[#ebebeb] rounded-[3px] cursor-pointer ">
-              XL
-            </div>
-            <div className="py-[18px] px-[24px] bg-[#fbfbfb] border-[#ebebeb] rounded-[3px] cursor-pointer ">
-              XXL
-            </div>
+          </h2>
+          <div className="flex gap-4 mt-2">
+            {["S", "M", "L", "XL", "XXL"].map((size) => (
+              <div
+                key={size}
+                className="py-2 md:py-3 px-4 md:px-6 bg-[#fbfbfb] border border-[#ebebeb] rounded-md cursor-pointer text-center"
+              >
+                {size}
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* Add to Cart Button */}
         <button
-          onClick={()=>{addToCart(product.id)}}
-          style={{ marginBottom: "40px" }}
-          className="py-[20px] px-[40px] w-[200px] text-[16px] font-semibold text-white bg-[#ff4141]  border-none outline-none cursor-pointer "
+          onClick={() => addToCart(product.id)}
+          className="py-3 md:py-4 px-6 w-full max-w-[200px] text-[14px] md:text-[16px] font-semibold text-white bg-[#ff4141] rounded-md mt-6"
         >
           ADD TO CART
         </button>
-        <p className="productdisplay-right-category mt-[10px]">
-          <span className="font-medium">Category :</span>{" "}
-          Woment,T-shirt,Crop-Top
+
+        {/* Additional Info */}
+        <p className="mt-4 text-[14px] md:text-[16px]">
+          <span className="font-medium">Category:</span> Women, T-shirt, Crop-Top
         </p>
-        <p className="productdisplay-right-category mt-[10px]">
-          <span className="font-medium">Tags :</span> Morden,Latest
+        <p className="text-[14px] md:text-[16px]">
+          <span className="font-medium">Tags:</span> Modern, Latest
         </p>
       </div>
     </div>

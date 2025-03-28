@@ -1,13 +1,13 @@
 import arrow_icon from "../assets/breadcrum_arrow.png";
 
-const Breadcrum = (props) => {
-  const { product } = props;
+const Breadcrum = ({ product }) => {
   return (
-
-    <div style={{ margin: "2rem 11rem" }} className="flex items-center gap-[8px] text-[#5e5e5e] text-[16px] font-semibold capitalize">
-  HOME <img src={arrow_icon} alt="" /> SHOP <img src={arrow_icon} alt="" />
-  {product.category} <img src={arrow_icon} alt="" /> {product.name}
-</div>
+    <div className="my-8 flex flex-wrap items-center gap-2 text-gray-600 text-sm md:text-base font-semibold capitalize">
+      <span className="truncate">HOME</span> <img src={arrow_icon} alt="arrow" /> 
+      <span className="truncate">SHOP</span> <img src={arrow_icon} alt="arrow" />
+      <span className="truncate">{product.category}</span> <img src={arrow_icon} alt="arrow" /> 
+      <span className="truncate">{product.name}</span>
+    </div>
   );
 };
 
