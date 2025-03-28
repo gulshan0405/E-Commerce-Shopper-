@@ -1,18 +1,20 @@
 import { useContext } from "react";
 import { ShopContext } from "../../context/ShopContext";
-import remove_icon from "../assets/cart_cross_icon.png";
 import { IoMdRemoveCircle } from "react-icons/io";
 
-
 const CartItems = () => {
-  const { getTotalcartAmount, all_product, cartItems, removeFromCart, addToCart } = useContext(ShopContext);
+  const { getTotalcartAmount, all_product, cartItems, removeFromCart, addToCart } =
+    useContext(ShopContext);
 
   return (
     <div className="cartItems mx-auto p-4 md:p-8 lg:p-16">
       {/* Cart Table Header */}
-      <div className=" grid-cols-6 gap-2 py-4 px-0 text-sm md:text-base text-gray-700 font-semibold hidden md:grid">
+      <div
+        style={{ gridTemplateColumns: "1fr 2fr 1fr 1fr 1fr 1fr" }}
+        className="cart-header hidden md:grid grid-cols-6 gap-4 py-4 px-0 text-sm md:text-base text-gray-700 font-semibold"
+      >
         <p>Products</p>
-        <p>Title</p>
+        <p className="pl-7">Title</p>
         <p>Price</p>
         <p>Quantity</p>
         <p>Total</p>
@@ -24,11 +26,29 @@ const CartItems = () => {
       {all_product.map((e) => {
         if (cartItems[e.id] > 0) {
           return (
-            <div key={e.id} className="cart-item grid grid-cols-6 gap-2 py-4 px-0 text-sm md:text-base text-gray-700 items-center">
-              <img className="col-span-6 md:col-span-1 w-[150px] max-h-[250px] mx-auto" src={e.image} alt={e.name} />
-              <p className="col-span-6 md:col-span-1 text-center">{e.name}</p>
-              <p className="col-span-6 md:col-span-1 text-center">${e.new_price}</p>
-              <div className="col-span-6 md:col-span-1 flex justify-center items-center gap-2">
+            <div
+              key={e.id}
+              className="cart-item grid grid-cols-2 md:grid-cols-6 gap-4 py-4 px-0 text-sm md:text-base text-gray-700 items-center"
+            >
+              {/* Product Image */}
+              <div className="col-span-2 md:col-span-1 flex justify-center items-center">
+                <img
+                  className="w-[100px] md:w-[150px] object-contain"
+                  src={e.image}
+                  alt={e.name}
+                />
+              </div>
+
+              {/* Product Title */}
+              <p className="col-span-2 md:col-span-1 text-center">{e.name}</p>
+
+              {/* Product Price */}
+              <p className="hidden md:block col-span-1 text-center">
+                ${e.new_price}
+              </p>
+
+              {/* Quantity Controls */}
+              <div className="col-span-2 md:col-span-1 flex justify-center items-center gap-2">
                 <button
                   onClick={() => addToCart(e.id)}
                   className="bg-green-300 text-white font-bold py-1 px-3 rounded hover:bg-green-600 transition"
@@ -47,21 +67,30 @@ const CartItems = () => {
                   -
                 </button>
               </div>
-              <p className="col-span-6 md:col-span-1 text-center">${(e.new_price * cartItems[e.id]).toFixed(2)}</p>
-              <IoMdRemoveCircle   
-                    onClick={() => removeFromCart(e.id)}
-                className="col-span-6 md:col-span-1 w-6 h-6 mx-auto  cursor-pointer"/>
+
+              {/* Product Total */}
+              <p className="hidden md:block col-span-1 text-center">
+                ${(e.new_price * cartItems[e.id]).toFixed(2)}
+              </p>
+
+              {/* Remove Icon */}
+              <div className="col-span-2 md:col-span-1 flex justify-center items-center">
+                <IoMdRemoveCircle
+                  onClick={() => removeFromCart(e.id)}
+                  className="w-6 h-6 text-red-500 cursor-pointer hover:text-red-700 transition"
+                />
+              </div>
             </div>
           );
         }
         return null;
       })}
-      <hr className="h-[2px] bg-gray-200 mt-4" />
 
       {/* Cart Total Section */}
-      <div className="cart-total flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mt-8">
+      <hr className="h-[2px] bg-gray-200 mt-4" />
+      <div className="cart-total flex flex-col lg:flex-row justify-center items-center gap-8 mt-8">
         {/* Total Summary */}
-        <div className="flex-1 flex flex-col gap-4">
+        <div className="flex-1 flex flex-col gap-4 text-center lg:text-left">
           <h2 className="text-lg font-semibold">Cart Total</h2>
           <div>
             <div className="flex justify-between py-2">
@@ -85,8 +114,10 @@ const CartItems = () => {
         </div>
 
         {/* Promo Code Section */}
-        <div className="promo-code w-full lg:w-1/2">
-          <p className="text-sm text-gray-600">If you have a promo code, enter it here:</p>
+        <div className="promo-code w-full lg:w-1/2 flex flex-col items-center">
+          <p className="text-sm text-gray-600 text-center">
+            If you have a promo code, enter it here:
+          </p>
           <div className="flex items-center gap-2 mt-2">
             <input
               className="flex-1 border border-gray-300 rounded p-2 text-sm outline-none"

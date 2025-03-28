@@ -3,7 +3,7 @@ import Item from "../Item/Item";
 
 const NewCollection = () => {
   return (
-    <div className="newcollection flex flex-col items-center gap-4 mb-24 px-4 sm:px-6 lg:px-12">
+    <div style={{marginTop:"40px"}} className="newcollection flex flex-col items-center gap-4 mb-24 px-4 sm:px-6 lg:px-12">
       {/* Title Section */}
       <h1 className="text-[#171717] text-3xl sm:text-4xl lg:text-5xl font-semibold text-center">
         NEW COLLECTION

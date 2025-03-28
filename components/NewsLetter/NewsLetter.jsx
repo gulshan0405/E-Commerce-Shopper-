@@ -1,6 +1,6 @@
 const NewsLetter = () => {
   return (
-    <div className="flex justify-center px-4 sm:px-6 lg:px-12">
+    <div style={{marginTop:"20px"}} className="flex justify-center px-4 sm:px-6 lg:px-12">
       <div className="news-letter w-full max-w-[1200px] h-auto flex flex-col items-center justify-center py-12 px-6 sm:px-12 lg:px-24 bg-gradient-to-r from-[#fde1ff] to-[#e1ffea] gap-8 rounded-lg shadow-md">
         {/* Heading */}
         <h1 className="text-[#454545] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold text-center">
