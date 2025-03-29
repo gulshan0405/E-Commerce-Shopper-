@@ -2,8 +2,8 @@ import './LoginSignup.css';
 
 const LoginSignup = () => {
   return (
-    <div className="loginsignup w-full h-screen pt-20 bg-[#fce3fe] flex justify-center items-center">
-      <div className="loginsignup-container w-[90%] max-w-[500px] bg-white rounded-lg shadow-lg py-10 px-8">
+    <div className="loginsignup w-full h-screen pt-10 bg-[#fce3fe] flex justify-center items-center">
+      <div className="loginsignup-container w-[90%] max-w-[500px] bg-white rounded-lg shadow-lg py-8 px-8">
         <h1 style={{marginBottom:"20px"}} className="text-3xl font-semibold text-center text-gray-800">Sign Up</h1>
         <form className="loginsignup-fields flex flex-col gap-6 mt-8">
           <input
